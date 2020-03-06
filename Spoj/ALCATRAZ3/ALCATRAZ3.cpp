@@ -19,11 +19,6 @@ char matrix[105][105];
 bool visited[105][105];
 map<pair<int, int>, bool> finals;
 
-int calculateDistance(Point from, Point to)
-{
-    return abs(from.row - to.row) + abs(from.column - to.column);
-}
-
 void dfs(int row, int column, int dist)
 {
     visited[row][column] = true;
