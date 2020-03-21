@@ -10,11 +10,6 @@
 
 using namespace std;
 
-struct Edge
-{
-    int node, dist;
-};
-
 int cities, to, longestNode, maxDist;
 unordered_set<int> graph[1405];
 bool visited[1405];
