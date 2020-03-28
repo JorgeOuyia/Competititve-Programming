@@ -25,7 +25,7 @@ set<int> path;
 void dfs(int u)
 {
 	visited[u] = true;
-    path.insert(u);
+	path.insert(u);
 
 	for (int v : rGraph[u])
 		if (!visited[v])
@@ -44,13 +44,13 @@ void topoSort(int u)
 
 int main()
 {
-    cin >> n;
+	cin >> n;
 	while (n != 0)
 	{
 		until = -1;
 		cin.ignore();
-        res.clear();
-        path.clear();
+		res.clear();
+		path.clear();
 		for (int i = 0; i < 30; i++)
 			visited[i] = false, graph[i].clear(), rGraph[i].clear(), inDegree[i] = 0, letters[i] = false;
 		for (int i = 0; i < n; i++)
@@ -58,7 +58,7 @@ int main()
 			getline(cin, line);
 			until = max(until, line[line.length() - 1] - 'A');
 			int source = line[line.length() - 1] - 'A';
-            letters[source] = true;
+			letters[source] = true;
 			for (int i = 0; i < line.length() - 1; i++)
 			{
 				if (line[i] != ' ')
@@ -66,7 +66,7 @@ int main()
 					graph[source].push_back(line[i] - 'A');
 					rGraph[line[i] - 'A'].push_back(source);
 					until = max(until, line[i] - 'A');
-                    letters[line[i] - 'A'] = true;
+					letters[line[i] - 'A'] = true;
 				}
 			}
 		}
@@ -80,28 +80,28 @@ int main()
 		{
 			int i = topoOrder.top();
 			topoOrder.pop();
-            path.clear();
+			path.clear();
 			if (!visited[i])
 				dfs(i), res[*path.begin()] = path;
 		}
 		for (auto it = res.begin(); it != res.end(); ++it)
-        {
-            int first = true;
-            for (auto jt = it->second.begin(); jt != it->second.end(); ++jt)
-            {
-                if (first)
-                {
-                    first = false;
-                    cout << (char)(*jt + 'A');
-                }
-                else
-                    cout << " " << (char)(*jt + 'A');
-            }
-            cout << endl;
-        }
-        cin >> n;
-        if (n != 0)
-            cout << endl;
+		{
+			int first = true;
+			for (auto jt = it->second.begin(); jt != it->second.end(); ++jt)
+			{
+				if (first)
+				{
+					first = false;
+					cout << (char)(*jt + 'A');
+				}
+				else
+					cout << " " << (char)(*jt + 'A');
+			}
+			cout << endl;
+		}
+		cin >> n;
+		if (n != 0)
+			cout << endl;
 	}
 	return 0;
 }
