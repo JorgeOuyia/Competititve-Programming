@@ -39,7 +39,6 @@ char matrix[105][105];
 vector<Edge> graph[105 * 105];
 vector<int> subGraph[105 * 105];
 int distances[105 * 105];
-int inDegree[105 * 105];
 int dp[105 * 105];
 unordered_map<pair<int, int>, int, Pair_Hash> hashMap;
 unordered_map<int, unordered_set<int>> ancestors;
