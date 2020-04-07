@@ -14,8 +14,8 @@ using namespace std;
 
 struct Pair_Hash
 {
-    template<class T1, class T2>
-    size_t operator()(pair<T1, T2> const& pair) const
+    template <class T1, class T2>
+    size_t operator()(pair<T1, T2> const &pair) const
     {
         size_t h1 = hash<T1>()(pair.first);
         size_t h2 = hash<T2>()(pair.second);
@@ -28,7 +28,7 @@ struct Edge
 {
     int node, dist;
 
-    bool operator<(const Edge& other) const
+    bool operator<(const Edge &other) const
     {
         return other.dist < dist;
     }
@@ -45,14 +45,14 @@ unordered_map<int, unordered_set<int>> ancestors;
 vector<int> topoOrder;
 map<int, int> allNodes;
 string line;
-int di[2] = { 1, 0};
-int dj[2] = { 0, 1 };
+int di[2] = {1, 0};
+int dj[2] = {0, 1};
 
 void dijkstra(int start)
 {
     distances[start] = 0;
     priority_queue<Edge> pq;
-    pq.push({ start, 0 });
+    pq.push({start, 0});
     Edge current;
     while (!pq.empty())
     {
@@ -66,7 +66,7 @@ void dijkstra(int start)
                 if (peso < distances[to.node])
                 {
                     distances[to.node] = peso;
-                    pq.push({ to.node, peso });
+                    pq.push({to.node, peso});
                     if (ancestors.find(to.node) != ancestors.end())
                         ancestors[to.node].clear();
                     ancestors[to.node].insert(current.node);
@@ -152,7 +152,7 @@ int main()
 
                     if (matrix[r][c] != '#' && r >= 1 && c >= 1 && r <= rows && c <= columns && matrix[i][j] != '#')
                     {
-                        graph[hashMap[{i, j}]].push_back({ hashMap[{r, c}], 1 });
+                        graph[hashMap[{i, j}]].push_back({hashMap[{r, c}], 1});
                     }
                 }
             }
