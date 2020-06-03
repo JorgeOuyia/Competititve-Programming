@@ -1,2 +1,3 @@
-# Competititve-Programming
-Here I will upload my solutions of competitive programming problems
+# Competititve Programming
+
+In this repository, I upload my solutions to different competitive programming problems, specially graph problems
